@@ -194,23 +194,6 @@ function ZKTacticalDeployments.UI.OpenDeployableRadial()
         local dist   = math.sqrt(dx*dx + dy*dy)
 
         -------------------------------------------------
-        -- INNER CIRCLE (Back/Cancel)
-        -------------------------------------------------
-        hoveringCancel = (dist < INNER_RADIUS)
-        
-        -- Check if we are in a submenu to display "Back"
-        local centerText = (#menuHistory > 0) and "Back" or "Cancel" 
-
-        -- Draw the inner dark circle
-        drawCircleFilled(cx, cy, INNER_RADIUS,
-            hoveringCancel and Color(0,0,50,150) or Color(0,0,50,130)
-        )
-
-        -- Draw white outline for inner circle
-        surface.DrawCircle(cx, cy, INNER_RADIUS, 255, 255, 255)
-        
-
-        -------------------------------------------------
         -- OUTER RING AREA
         -------------------------------------------------
         -- CHANGED: Use currentOptions instead of a fixed global table
@@ -335,6 +318,22 @@ function ZKTacticalDeployments.UI.OpenDeployableRadial()
         -- OUTER RING OUTLINE
         -------------------------------------------------
         surface.DrawCircle(cx, cy, OUTER_RADIUS, 255, 255, 255, 200)
+
+        -------------------------------------------------
+        -- INNER CIRCLE (Back/Cancel)
+        -------------------------------------------------
+        hoveringCancel = (dist < INNER_RADIUS)
+        
+        -- Check if we are in a submenu to display "Back"
+        local centerText = (#menuHistory > 0) and "Back" or "Cancel" 
+
+        -- Draw the inner dark circle
+        drawCircleFilled(cx, cy, INNER_RADIUS,
+            hoveringCancel and Color(0,0,50,150) or Color(0,0,50,130)
+        )
+
+        -- Draw white outline for inner circle
+        surface.DrawCircle(cx, cy, INNER_RADIUS, 255, 255, 255)
 
         -------------------------------------------------
         -- INNER TEXT / CANCEL BUTTON
