@@ -3,7 +3,7 @@
 ---------------------------------------------------------------
 ZKTacticalDeployments = ZKTacticalDeployments or {}
 
-ZKTacticalDeployments.VERSION = 3
+ZKTacticalDeployments.VERSION = 4
 ZKTacticalDeployments.VERSION_GITHUB = 0
 ZKTacticalDeployments.VERSION_TYPE = ".GIT"
 
@@ -85,14 +85,14 @@ if SERVER then
 end
 
 if CLIENT then
-	surface.CreateFont("BF2_HUDFont", {
+	surface.CreateFont("TACDEPS_HUDFont", {
         font = "Roboto Condensed",
         size = 60,
         weight = 500,
         antialias = true,
     })
 
-	surface.CreateFont("BF2_HUDFont_Small", {
+	surface.CreateFont("TACDEPS_HUDFont_Small", {
         font = "Roboto Condensed",
         size = 36,
         weight = 500,

@@ -43,23 +43,6 @@ net.Receive("ZKTDS_ShowDeathScreen", function()
 end)
 
 -- ─────────────────────────────────────────────────────────────
--- Fonts
--- ─────────────────────────────────────────────────────────────
-surface.CreateFont("BF2_Death_Font", {
-    font = "Star Jedi",
-    size = 48,
-    weight = 500,
-    antialias = true
-})
-
-surface.CreateFont("BF2_Death_Button", {
-    font = "Star Jedi",
-    size = 32,
-    weight = 500,
-    antialias = true
-})
-
--- ─────────────────────────────────────────────────────────────
 -- Utility Function for adding a UI Button
 -- @param label String
 -- @param x int
@@ -70,7 +53,7 @@ surface.CreateFont("BF2_Death_Button", {
 -- @return h int - Height of the button
 -- ─────────────────────────────────────────────────────────────
 local function AddDeathButton(label, x, y, action, color, disabled)
-    surface.SetFont("BF2_Death_Button")
+    surface.SetFont("TACDEPS_HUDFont_Small")
     local txtW, txtH = surface.GetTextSize(label)
     local pad = 16
     local w = txtW + pad * 2
@@ -115,16 +98,16 @@ hook.Add("HUDPaint", "ZKTacticalDeployments_DeathScreenHUD", function()
     surface.SetDrawColor(255,255,255,200)
     surface.DrawOutlinedRect(panelX, panelY, panelW, panelH)
 
-    draw.SimpleText("KILLED BY", "BF2_Death_Button", panelX + pad, panelY + pad, Color(190,190,190,170))
+    draw.SimpleText("KILLED BY", "TACDEPS_HUDFont_Small", panelX + pad, panelY + pad, Color(190,190,190,170))
     surface.SetDrawColor(255,255,255,50)
     surface.DrawLine(panelX, panelY + pad + 35, panelX + panelW, panelY + pad + 35)
 
-    draw.SimpleText(DeathText, "BF2_Death_Button", panelX + pad, panelY + pad + 35, Color(255,255,255))
+    draw.SimpleText(DeathText, "TACDEPS_HUDFont_Small", panelX + pad, panelY + pad + 35, Color(255,255,255))
 
     -- Show countdown
     if locked then
         local timeLeft = math.ceil(DeathSpawnUnlockTime - CurTime())
-        draw.SimpleText("Available in " .. timeLeft, "BF2_Death_Button", panelX + pad, panelY + pad + 60, Color(255,80,80))
+        draw.SimpleText("Available in " .. timeLeft, "TACDEPS_HUDFont_Small", panelX + pad, panelY + pad + 60, Color(255,80,80))
     end
 
     ZK_DeathButtons = {}
@@ -175,7 +158,7 @@ hook.Add("HUDPaint", "ZKTacticalDeployments_DeathScreenHUD", function()
         surface.SetDrawColor(b.color.r, b.color.g, b.color.b, b.color.a)
         surface.DrawOutlinedRect(b.x, b.y, b.w, b.h)
 
-        draw.SimpleText(b.label, "BF2_Death_Button", b.x + b.w / 2, b.y + b.h / 2, b.color, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+        draw.SimpleText(b.label, "TACDEPS_HUDFont_Small", b.x + b.w / 2, b.y + b.h / 2, b.color, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
     end
 end)
 

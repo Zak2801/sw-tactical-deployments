@@ -305,7 +305,7 @@ function ZKTacticalDeployments.UI.OpenDeployableRadial()
 
             draw.SimpleText(
                 textName,
-                "BF2_HUDFont_Small",
+                "TACDEPS_HUDFont_Small",
                 baseX,
                 baseY + offsetY,
                 hovered and Color(238, 183, 45, 255) or Color(220,220,220),
@@ -338,7 +338,7 @@ function ZKTacticalDeployments.UI.OpenDeployableRadial()
         -------------------------------------------------
         -- INNER TEXT / CANCEL BUTTON
         -------------------------------------------------
-        surface.SetFont("BF2_HUDFont_Small")
+        surface.SetFont("TACDEPS_HUDFont_Small")
         local tw, th = surface.GetTextSize(centerText)
         local pad = 8
 
@@ -348,7 +348,7 @@ function ZKTacticalDeployments.UI.OpenDeployableRadial()
         -- "Back"/"Cancel" Text
         draw.SimpleText(
             centerText,
-            "BF2_HUDFont_Small",
+            "TACDEPS_HUDFont_Small",
             cx, cy,
             color_black,
             TEXT_ALIGN_CENTER,
