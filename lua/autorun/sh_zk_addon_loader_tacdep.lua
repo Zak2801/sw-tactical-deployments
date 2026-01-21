@@ -22,22 +22,22 @@ function ZKTacticalDeployments:CheckUpdates()
 		end
 
 		if ZKTacticalDeployments.VERSION_GITHUB == 0 then
-			print("[ZKTacticalDeployments] Latest version could not be detected, You have Version: "..ZKTacticalDeployments:GetVersion())
+			print("[TacticalDeployments] Latest version could not be detected, You have Version: "..ZKTacticalDeployments:GetVersion())
 		else
 			if  ZKTacticalDeployments:GetVersion() >= ZKTacticalDeployments.VERSION_GITHUB then
-				print("[ZKTacticalDeployments] up to date. Version: "..ZKTacticalDeployments:GetVersion())
+				print("[TacticalDeployments] up to date. Version: "..ZKTacticalDeployments:GetVersion())
 			else
-				print("[ZKTacticalDeployments] a newer version is available! Version: "..ZKTacticalDeployments.VERSION_GITHUB..", You have Version: "..ZKTacticalDeployments:GetVersion())
+				print("[TacticalDeployments] a newer version is available! Version: "..ZKTacticalDeployments.VERSION_GITHUB..", You have Version: "..ZKTacticalDeployments:GetVersion())
 
 				if ZKTacticalDeployments.VERSION_TYPE == ".GIT" then
-					print("[ZKTacticalDeployments] Get the latest version at https://github.com/Zak2801/slicer-framework")
+					print("[TacticalDeployments] Get the latest version at https://github.com/Zak2801/sw-tactical-deployments")
 				else
-					print("[ZKTacticalDeployments] Restart your game/server to get the latest version!")
+					print("[TacticalDeployments] Restart your game/server to get the latest version!")
 				end
 
 				if CLIENT then 
 					timer.Simple(25, function() 
-						chat.AddText( Color( 255, 0, 0 ), "[ZKTacticalDeployments] a newer version is available!" )
+						chat.AddText( Color( 255, 0, 0 ), "[TacticalDeployments] a newer version is available!" )
 					end)
 				end
 			end
