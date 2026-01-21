@@ -69,7 +69,7 @@ net.Receive("ZKTDS_RequestPickupRally", function(_, ply)
     local ent = ply:GetEyeTrace().Entity
     if !IsValid(ent) then return end
     if ent:GetClass() ~= "zks_tds_rally_point" then ply:ChatPrint("[TDS]: You are not looking at a rally.") return end
-    if ent:GetPlacer() == ply then ent:DestroyRally("Picked up.") end
-    local wepClass = "wp_rally_deployer"
-    GiveWeaponAndStrip(ply, wepClass)
+    if ent:GetPlacer() == ply then ent:DestroyObj("Picked up.") end
+    -- local wepClass = "wp_rally_deployer"
+    -- GiveWeaponAndStrip(ply, wepClass)
 end)
