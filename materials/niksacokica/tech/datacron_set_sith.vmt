@@ -1,0 +1,26 @@
+"VertexLitGeneric"
+{
+    "$basetexture" "niksacokica/tech/datacron_set_sith_d"
+    "$bumpmap" "niksacokica/tech/datacron_set_sith_n"
+
+    "$phongexponenttexture" "niksacokica/tech/datacron_set_sith_s"
+
+    "$color2" "[0.6 0.6 0.6]"
+    "$blendTintByBaseAlpha"    "1"
+
+    "$phong" "1"
+    "$phongboost" "1"
+
+    "$phongfresnelranges" "[0.05 0.115 0.945]"
+
+    
+    "$normalmapalphaenvmapmask" "1"
+    "$envmapfresnel" "1"
+
+    "$envmaptint" "[.5 .5 .5]"
+
+    "$detail" "niksacokica/tech/datacron_set_jedi_em"
+    "$detailblendmode" "6"
+    "$detailblendfactor" "1"
+    "$detailscale" "1"
+}
