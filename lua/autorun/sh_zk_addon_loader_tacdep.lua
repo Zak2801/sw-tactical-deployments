@@ -3,7 +3,7 @@
 ---------------------------------------------------------------
 ZKTacticalDeployments = ZKTacticalDeployments or {}
 
-ZKTacticalDeployments.VERSION = 2
+ZKTacticalDeployments.VERSION = 3
 ZKTacticalDeployments.VERSION_GITHUB = 0
 ZKTacticalDeployments.VERSION_TYPE = ".GIT"
 
@@ -12,7 +12,7 @@ function ZKTacticalDeployments:GetVersion()
 end
 
 function ZKTacticalDeployments:CheckUpdates()
-	http.Fetch("https://raw.githubusercontent.com/Zak2801/sw-tactical-deployments/refs/heads/main/lua/autorun/sh_addon_loader_tacdep.lua", function(contents,size) 
+	http.Fetch("https://raw.githubusercontent.com/Zak2801/sw-tactical-deployments/refs/heads/main/lua/autorun/sh_zk_addon_loader_tacdep.lua", function(contents,size) 
 		local Entry = string.match( contents, "ZKTacticalDeployments.VERSION%s=%s%d+" )
 
 		if Entry then
