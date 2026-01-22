@@ -101,21 +101,9 @@ function ZKTacticalDeployments.UI.CloseDeployableRadial()
     
     -- --- 1. HANDLE CANCEL / BACK ---
     if hoveringCancel then
-        if #menuHistory > 0 then
-            -- Go UP a level (Back button)
-            
-            -- Remove last index from history
-            table.remove(menuHistory)
-            
-            -- Traverse history to get the parent level options
-            local tempOptions = menuStructure
-            for _, idx in ipairs(menuHistory) do
-                tempOptions = tempOptions[idx].submenu
-            end
-            currentOptions = tempOptions
-        end
-        
         radialMenu:Remove()
+        currentOptions = menuStructure
+        menuHistory = {}
         selectedIndex = nil
         hoveringCancel = false
         radialMenu = nil
@@ -152,9 +140,12 @@ function ZKTacticalDeployments.UI.CloseDeployableRadial()
     if IsValid(radialMenu) then
         radialMenu:Remove()
     end
+    currentOptions = menuStructure
+    menuHistory = {}
     selectedIndex = nil
     hoveringCancel = false
     radialMenu = nil
+    return
 end
 
 
@@ -173,8 +164,7 @@ function ZKTacticalDeployments.UI.OpenDeployableRadial()
         ZKTacticalDeployments.UI.MenuLoopSound:PlayEx(0.03, 80) -- volume, pitch
     end
 
-    selectedIndex = nil
-
+    -- selectedIndex = nil
     -- menuHistory = {}
     -- currentOptions = menuStructure
 
@@ -361,8 +351,20 @@ function ZKTacticalDeployments.UI.OpenDeployableRadial()
 
         -- Click the center
         if hoveringCancel then
-            ZKTacticalDeployments.UI.CloseDeployableRadial()
-            return
+            if #menuHistory == 0 then
+                ZKTacticalDeployments.UI.CloseDeployableRadial()
+                return
+            elseif #menuHistory > 0 then
+                -- Remove last index from history
+                table.remove(menuHistory)
+                
+                -- Traverse history to get the parent level options
+                local tempOptions = menuStructure
+                for _, idx in ipairs(menuHistory) do
+                    tempOptions = tempOptions[idx].submenu
+                end
+                currentOptions = tempOptions
+            end
         end
 
         -- Click a slice
