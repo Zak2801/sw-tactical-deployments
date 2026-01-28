@@ -3,7 +3,7 @@
 ---------------------------------------------------------------
 ZKTacticalDeployments = ZKTacticalDeployments or {}
 
-ZKTacticalDeployments.VERSION = 5
+ZKTacticalDeployments.VERSION = 6
 ZKTacticalDeployments.VERSION_GITHUB = 0
 ZKTacticalDeployments.VERSION_TYPE = ".GIT"
 
