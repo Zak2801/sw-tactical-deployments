@@ -100,7 +100,7 @@ if CLIENT then
         ang:RotateAroundAxis(ang:Right(), 90)
         ang:RotateAroundAxis(ang:Up(), 90)
 
-        surface.SetFont("BF2_HUDFont")
+        surface.SetFont("TACDEPS_HUDFont")
         local tw, th = surface.GetTextSize(text)
         local pad = 14
         local bw, bh = tw + pad*2, th + pad*1.2
@@ -112,7 +112,7 @@ if CLIENT then
             end
             surface.SetDrawColor(255,255,255,220)
             surface.DrawOutlinedRect(-bw/2, -bh/2, bw, bh)
-            draw.SimpleText(text, "BF2_HUDFont", 0, 0, color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+            draw.SimpleText(text, "TACDEPS_HUDFont", 0, 0, color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
         cam.End3D2D()
     end
 end
