@@ -21,7 +21,10 @@ end
 -- @return nil
 -- ─────────────────────────────────────────────────────────────
 hook.Add("InitPostEntity", "ZKTacticalDeployments_Init", function()
-    if not GAMEMODE or GAMEMODE.Name ~= "DarkRP" then
+    MsgC(Color( 0, 125, 255, 255 ), "[ZKTacticalDeployments]: Building groups...\n")
+
+    if not RPExtraTeams or not DarkRP then
+        MsgC(Color( 255, 0, 0, 255 ), "[ZKTacticalDeployments]: DarkRP not detected, skipping group build.\n")
         ZKTacticalDeployments.Groups.List = {}
         return
     end
@@ -56,6 +59,8 @@ hook.Add("InitPostEntity", "ZKTacticalDeployments_Init", function()
             teamID = teamID,
             name   = jobData.name,
         })
+
+        MsgC(Color( 0, 200, 50, 255 ), "[ZKTacticalDeployments]: Added job '"..jobData.name.."' to group '"..categoryName.."'.\n")
 
         -- Building an O(1) lookup table (hashmap)
         ZKTacticalDeployments.Groups.Lookup[teamID] = categoryName

@@ -39,9 +39,11 @@ net.Receive("ZKTDS_PlaceItem", function(len, ply)
     ZKTacticalDeployments.Groups = ZKTacticalDeployments.Groups or {}
     local groupName = "Public"
     if ZKTacticalDeployments.Groups.GetPlyGroup then
-         groupName = ZKTacticalDeployments.Groups.GetPlyGroup(ply:Team())
+        groupName = ZKTacticalDeployments.Groups.GetPlyGroup(ply:Team())
     end
     ent:SetGroupName(groupName)
+
+    MsgC(Color(0, 255, 0, 255), "[TDS] Player " .. ply:Nick() .. " deployed " .. item.PrintName .. " for group " .. groupName .. ".\n")
     
     -- Position
     -- If items define specific offsets, we should handle them. 
